@@ -66,7 +66,7 @@
                         <div class="bg-white py-2 collapse-inner rounded">
                             <a class="collapse-item" href="{{ url('/') }}">Equipamentos</a>
                             <a class="collapse-item" href="{{ url('/') }}">Modelos de Relatórios</a>
-                            <a class="collapse-item" href="{{ url('/') }}">Naturezas de Atendimentos</a>
+                            <a class="collapse-item" href="{{ url('/naturezas-dos-atendimentos') }}">Naturezas de Atendimentos</a>
                             <a class="collapse-item" href="{{ url('/') }}">Ocorrências</a>
                             <a class="collapse-item" href="{{ url('/') }}">Mão de Obra</a>
                             <a class="collapse-item" href="{{ url('/') }}">Tipos de Atendimentos</a>

@@ -1,7 +1,7 @@
-<x-layout title="Mão de Obra">
+<x-layout title="Naturezas de Atendimento">
     <div class="card shadow mb-4">
         <div class="card-header py-3">
-            <a href="javascript:void(0)" class="btn btn-info btn-icon-split" id="btnNovoTipoOcupacao">
+            <a href="javascript:void(0)" class="btn btn-info btn-icon-split" id="btnNovaNaturezaAtendimento">
                 <span class="icon text-white-50">
                     <i class="fas fa-plus"></i>
                 </span>
@@ -11,10 +11,10 @@
 
         <div class="card-body">
             <div class="table-responsive">
-                <table id="dataTableTiposOcupacoes"
+                <table id="dataTableNaturezasAtendimentos"
                     class="table table-translate dt-responsive"
-                    data-url="{{ route('tipos-de-mao-de-obra.index') }}" 
-                    width="100%" 
+                    data-url="{{ route('naturezas-dos-atendimentos.index') }}"
+                    width="100%"
                     cellspacing="0">
                     <thead>
                         <tr>
@@ -29,9 +29,10 @@
         </div>
     </div>
 
-    @include('tipos_ocupacoes.modal')
+    {{-- Modal --}}
+    @include('naturezas_atendimentos.modal')
 
     @push('scripts')
-    <script src="{{ asset('js/app/tipos.ocupacoes.js') }}"></script>
+    <script src="{{ asset('js/app/naturezas.atendimentos.js') }}"></script>
     @endpush
 </x-layout>
