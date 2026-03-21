@@ -9,9 +9,9 @@ class TipoOcupacao extends Model
 {
     use HasFactory;
 
-    public $timestamps = false;
     protected $table = 'tipos_ocupacoes';
     protected $primaryKey = 'tp_ocup_id';
+    public $timestamps = false;
 
     protected $fillable = [
         'tp_ocup_descricao',
@@ -19,6 +19,6 @@ class TipoOcupacao extends Model
     ];
 
     protected $casts = [
-        'tp_ocup_ativo' => 'integer',
+        'tp_ocup_ativo' => 'boolean',
     ];
 }

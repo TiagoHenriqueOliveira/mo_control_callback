@@ -1,13 +1,13 @@
 @font-face {
   font-family: 'Poppins';
-  src: url('/movicare/fonts/Poppins/Poppins-Regular.ttf') format('truetype');
+  src: url('/fonts/Poppins/Poppins-Regular.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'Poppins';
-  src: url('/movicare/fonts/Poppins/Poppins-Bold.ttf') format('truetype');
+  src: url('/fonts/Poppins/Poppins-Bold.ttf') format('truetype');
   font-weight: bold;
   font-style: normal;
 }
@@ -70,7 +70,7 @@ html body {
 }
 
 .sidebar .nav-link:hover {
-  transform: scale(1.25);
+  transform: scale(1.15);
 }
 
 .nav-tabs .nav-link:hover,
@@ -89,10 +89,6 @@ html body {
   color: #6e707e;
   background-color: #fff;
   border-color: #36b9cc;
-}
-
-#nav-tab-patologia {
-  border-bottom: 1px solid #36b9cc;
 }
 
 .collapse-item .menu-icon {

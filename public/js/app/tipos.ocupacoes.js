@@ -1,8 +1,8 @@
+// tipos.ocupacoes.js
 $(document).ready(function () {
     configDataTableTiposOcupacoes();
     initSubmitTipoOcupacao();
     
-    // Botão Cadastrar: abre modal limpo
     $("#btnNovoTipoOcupacao").on("click", function () {
         abrirModalTipoOcupacao({
             tp_ocup_id: "",
@@ -19,12 +19,7 @@ function configDataTableTiposOcupacoes() {
 
     tableEl.DataTable({
         destroy: true,
-        responsive: true,
         ordering: false,
-        pageLength: 25,
-        language: {
-            url: "https://cdn.datatables.net/plug-ins/1.10.19/i18n/Portuguese-Brasil.json"
-        },
         ajax: {
             url: url,
             type: "GET",
