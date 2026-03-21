@@ -28,4 +28,4 @@ Route::controller(DashboardController::class)->group(function () {
 });
 
 // Tipos de Ocupações
-Route::resource('tipos-de-ocupacoes', TipoOcupacaoController::class)->except(['create', 'edit', 'show', 'destroy']);
+Route::resource('tipos-de-mao-de-obra', TipoOcupacaoController::class)->except(['create', 'edit', 'show', 'destroy']);

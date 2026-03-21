@@ -122,3 +122,8 @@ html body {
   font-weight: bold;
   text-decoration: none;
 }
+
+#dataTableTiposOcupacoes tbody tr:hover {
+  background-color: #f2f2f2;
+  cursor: pointer;
+}

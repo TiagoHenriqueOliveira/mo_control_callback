@@ -68,9 +68,9 @@
                             <a class="collapse-item" href="{{ url('/') }}">Modelos de Relatórios</a>
                             <a class="collapse-item" href="{{ url('/') }}">Naturezas de Atendimentos</a>
                             <a class="collapse-item" href="{{ url('/') }}">Ocorrências</a>
-                            <a class="collapse-item" href="{{ url('/') }}">Ocupações</a>
+                            <a class="collapse-item" href="{{ url('/') }}">Mão de Obra</a>
                             <a class="collapse-item" href="{{ url('/') }}">Tipos de Atendimentos</a>
-                            <a class="collapse-item" href="{{ route('tipos-de-ocupacoes.index') }}">Tipos de Ocupações</a>
+                            <a class="collapse-item" href="{{ route('tipos-de-mao-de-obra.index') }}">Tipos de Mão de Obra</a>
                             <a class="collapse-item" href="{{ url('/') }}">Usuários</a>
                         </div>
                     </div>
