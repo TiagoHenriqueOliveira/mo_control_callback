@@ -59,19 +59,35 @@
                 <!-- Nav Item - Configurações Collapse Menu -->
                 <li class="nav-item">
                     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
-                        <i class="fas fa-cogs fa-2x"></i>
+                        <i class="fas fa-sliders-h"></i>
                         <span>Configurações</span>
                     </a>
                     <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                         <div class="bg-white py-2 collapse-inner rounded">
-                            <a class="collapse-item" href="{{ url('/equipamentos') }}">Equipamentos</a>
-                            <a class="collapse-item" href="{{ url('/') }}">Modelos de Relatórios</a>
-                            <a class="collapse-item" href="{{ url('/naturezas-dos-atendimentos') }}">Naturezas de Atendimentos</a>
-                            <a class="collapse-item" href="{{ url('/ocorrencias') }}">Ocorrências</a>
-                            <a class="collapse-item" href="{{ url('/mao-de-obra') }}">Mão de Obra</a>
-                            <a class="collapse-item" href="{{ url('/tipos-de-atendimentos') }}">Tipos de Atendimentos</a>
-                            <a class="collapse-item" href="{{ url('tipos-de-mao-de-obra') }}">Tipos de Mão de Obra</a>
-                            <a class="collapse-item" href="{{ url('/usuarios') }}">Usuários</a>
+                        <a class="collapse-item" href="{{ url('/equipamentos') }}">
+                            <i class="fas fa-toolbox fa-fw mr-2"></i>Equipamentos
+                        </a>
+                        <a class="collapse-item" href="{{ url('/') }}">
+                            <i class="fas fa-file-alt fa-fw mr-2"></i>Modelos de Relatórios
+                        </a>
+                        <a class="collapse-item" href="{{ url('/naturezas-dos-atendimentos') }}">
+                            <i class="fas fa-tags fa-fw mr-2"></i>Naturezas de Atendimentos
+                        </a>
+                        <a class="collapse-item" href="{{ url('/ocorrencias') }}">
+                            <i class="fas fa-exclamation fa-fw mr-2"></i>Ocorrências
+                        </a>
+                        <a class="collapse-item" href="{{ url('/mao-de-obra') }}">
+                            <i class="fas fa-people-carry fa-fw mr-2"></i>Mão de Obra
+                        </a>
+                        <a class="collapse-item" href="{{ url('/tipos-de-atendimentos') }}">
+                            <i class="fas fa-headset fa-fw mr-2"></i>Tipos de Atendimentos
+                        </a>
+                        <a class="collapse-item" href="{{ url('tipos-de-mao-de-obra') }}">
+                            <i class="fas fa-briefcase fa-fw mr-2"></i>Tipos de Mão de Obra
+                        </a>
+                        <a class="collapse-item" href="{{ url('/usuarios') }}">
+                            <i class="fas fa-user fa-fw mr-2"></i>Usuários
+                        </a>
                         </div>
                     </div>
                 </li>
