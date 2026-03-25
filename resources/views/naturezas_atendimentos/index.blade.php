@@ -14,12 +14,12 @@
                 <table id="dataTableNaturezasAtendimentos"
                     class="table table-translate dt-responsive"
                     data-url="{{ route('naturezas-dos-atendimentos.index') }}"
-                    width="100%"
-                    cellspacing="0">
+                    width="100%">
                     <thead>
                         <tr>
                             <th>Ações</th>
                             <th>Descrição</th>
+                            <th>Modelo de Relatório</th>
                             <th>Status</th>
                         </tr>
                     </thead>
@@ -30,7 +30,7 @@
     </div>
 
     {{-- Modal --}}
-    @include('naturezas_atendimentos.modal')
+    @include('naturezas_atendimentos.modal', ['modelosRelatorios' => $modelosRelatorios])
 
     @push('scripts')
     <script src="{{ asset('js/app/naturezas.atendimentos.js') }}"></script>

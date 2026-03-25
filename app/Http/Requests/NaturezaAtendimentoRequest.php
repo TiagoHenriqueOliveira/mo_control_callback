@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class NaturezaAtendimentoRequest extends FormRequest
 {
@@ -10,6 +11,13 @@ class NaturezaAtendimentoRequest extends FormRequest
     {
         return [
             'nat_aten_descricao' => ['required', 'string', 'max:50'],
+
+            'nat_aten_mod_relatorio_id' => [
+                'required',
+                'integer',
+                Rule::exists('modelos_relatorios', 'mod_rel_id')
+            ],
+
             'nat_aten_ativo' => ['nullable', 'boolean'],
         ];
     }
@@ -19,6 +27,8 @@ class NaturezaAtendimentoRequest extends FormRequest
         return [
             'nat_aten_descricao.required' => 'A descrição é obrigatória.',
             'nat_aten_descricao.max' => 'A descrição deve ter no máximo 50 caracteres.',
+            'nat_aten_mod_relatorio_id.required' => 'Selecione um modelo de relatório.',
+            'nat_aten_mod_relatorio_id.exists' => 'O modelo de relatório selecionado é inválido.',
         ];
     }
 }

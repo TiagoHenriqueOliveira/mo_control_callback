@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\NaturezaAtendimentoRequest;
+use App\Models\ModeloRelatorio;
 use App\Repositories\NaturezaAtendimentoRepository;
 use Illuminate\Http\Request;
 
@@ -18,7 +19,10 @@ class NaturezasAtendimentosController extends Controller
             $data = $this->repository->all()->map(function ($n) {
                 return [
                     'acoes' => view('naturezas_atendimentos.partials.acoes', compact('n'))->render(),
+
                     'nat_aten_descricao' => e($n->nat_aten_descricao),
+                    'mod_rel_descricao' => e(optional($n->modeloRelatorio)->mod_rel_descricao),
+                    'nat_aten_mod_relatorio_id' => (int) $n->nat_aten_mod_relatorio_id,
                     'nat_aten_ativo' => (int) $n->nat_aten_ativo,
                     'status' => $n->nat_aten_ativo ? 'Ativo' : 'Desativado',
                 ];
@@ -27,7 +31,11 @@ class NaturezasAtendimentosController extends Controller
             return response()->json(['data' => $data]);
         }
 
-        return view('naturezas_atendimentos.index');
+        $modelosRelatorios = ModeloRelatorio::where('mod_rel_ativo', 1)
+            ->orderBy('mod_rel_descricao')
+            ->get();
+
+        return view('naturezas_atendimentos.index', compact('modelosRelatorios'));
     }
 
     public function store(NaturezaAtendimentoRequest $request)

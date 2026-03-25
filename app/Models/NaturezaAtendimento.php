@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\ModeloRelatorio;
 
 class NaturezaAtendimento extends Model
 {
@@ -14,6 +15,7 @@ class NaturezaAtendimento extends Model
     public $timestamps = false;
 
     protected $fillable = [
+        'nat_aten_mod_relatorio_id',
         'nat_aten_descricao',
         'nat_aten_ativo',
     ];
@@ -21,4 +23,9 @@ class NaturezaAtendimento extends Model
     protected $casts = [
         'nat_aten_ativo' => 'boolean',
     ];
+
+    public function modeloRelatorio()
+    {
+        return $this->belongsTo(ModeloRelatorio::class, 'nat_aten_mod_relatorio_id', 'mod_rel_id');
+    }
 }

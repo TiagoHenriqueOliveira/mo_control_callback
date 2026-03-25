@@ -35,6 +35,9 @@
                         </div>
                     </div>
 
+                    {{-- Modelo de Relatório --}}
+                    <x-select-modelo-relatorio :modelosRelatorios="$modelosRelatorios" />
+
                     {{-- Ativo: somente visível ao editar --}}
                     <div class="form-group row d-none" id="div_nat_aten_ativo">
                         <label for="nat_aten_ativo" class="col-sm-3 col-form-label font-weight-bold">
@@ -65,7 +68,6 @@
                             Fechar
                         </button>
                     </div>
-
                 </form>
             </div>
         </div>

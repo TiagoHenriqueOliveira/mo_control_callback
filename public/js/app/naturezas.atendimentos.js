@@ -8,6 +8,7 @@ $(document).ready(function () {
         abrirModalNaturezaAtendimento({
             nat_aten_id: "",
             nat_aten_descricao: "",
+            nat_aten_mod_relatorio_id: "",
             nat_aten_ativo: 1
         });
     });
@@ -27,12 +28,14 @@ function configDataTableNaturezasAtendimentos() {
         columns: [
             { data: "acoes" },
             { data: "nat_aten_descricao" },
+            { data: "mod_rel_descricao" },
             { data: "status" }
         ],
         columnDefs: [
             { width: "10%", targets: 0 },
-            { width: "60%", targets: 1 },
-            { width: "30%", targets: 2 }
+            { width: "35%", targets: 1 },
+            { width: "35%", targets: 2 },
+            { width: "20%", targets: 3 }
         ],
         createdRow: function (row) {
             $("td", row).eq(0).addClass("text-center");
@@ -45,11 +48,12 @@ function configDataTableNaturezasAtendimentos() {
     });
 }
 
-// Clique no botão editar (gerado na coluna ações)
+// Clique no botão editar
 $(document).on("click", ".btn-modal-natureza-atendimento", function () {
     abrirModalNaturezaAtendimento({
         nat_aten_id: $(this).data("id"),
         nat_aten_descricao: $(this).data("descricao"),
+        nat_aten_mod_relatorio_id: $(this).data("mod-rel"),
         nat_aten_ativo: $(this).data("ativo")
     });
 });
@@ -58,7 +62,7 @@ $("#modal_natureza_atendimento").on("hidden.bs.modal", function () {
     $("#form_natureza_atendimento button[type='submit']").prop("disabled", false);
 });
 
-// Abre modal e configura campos
+// Abre modal
 function abrirModalNaturezaAtendimento(data) {
     $("#form_natureza_atendimento button[type='submit']").prop("disabled", false);
 
@@ -69,6 +73,7 @@ function abrirModalNaturezaAtendimento(data) {
 
     $("#nat_aten_id").val(data.nat_aten_id || "");
     $("#nat_aten_descricao").val(data.nat_aten_descricao || "");
+    $("#nat_aten_mod_relatorio_id").val(data.nat_aten_mod_relatorio_id || "");
 
     const ativo = (data.nat_aten_ativo === 1 || data.nat_aten_ativo === true || data.nat_aten_ativo === "1");
     $("#nat_aten_ativo").prop("checked", ativo);
@@ -84,9 +89,9 @@ function abrirModalNaturezaAtendimento(data) {
             $("#form_natureza_atendimento").attr("action", baseURL + "/naturezas-dos-atendimentos");
 
             $("#div_nat_aten_ativo").addClass("d-none");
-
             $("#nat_aten_ativo").prop("checked", true);
             $("#nat_aten_ativo_label").text("Ativo");
+            $("#nat_aten_mod_relatorio_id").val("");
         } else {
             $("#modal_natureza_atendimento_label").text("Naturezas de Atendimento | Editar");
 
@@ -102,13 +107,12 @@ function abrirModalNaturezaAtendimento(data) {
         $("#nat_aten_descricao").focus();
     });
 
-    // Troca label ao clicar
     $("#nat_aten_ativo").off("change").on("change", function () {
         $("#nat_aten_ativo_label").text(this.checked ? "Ativo" : "Desativado");
     });
 }
 
-// Submit do form (store/update)
+// Submit
 function initSubmitNaturezaAtendimento() {
     $(document).off("submit", "#form_natureza_atendimento").on("submit", "#form_natureza_atendimento", function (event) {
         event.preventDefault();
@@ -116,17 +120,19 @@ function initSubmitNaturezaAtendimento() {
         let form = $(this);
         let actionUrl = form.attr("action");
 
-        // serialize não envia checkbox desmarcado, então garantimos o valor
         let formData = form.serializeArray();
-        const ativoMarcado = $("#nat_aten_ativo").is(":checked");
-        formData.push({ name: "nat_aten_ativo", value: ativoMarcado ? 1 : 0 });
+
+        formData.push({
+            name: "nat_aten_ativo",
+            value: $("#nat_aten_ativo").is(":checked") ? 1 : 0
+        });
 
         const btnSubmit = form.find("button[type='submit']");
         btnSubmit.prop("disabled", true);
 
         $.ajax({
             url: actionUrl,
-            type: "POST", // Laravel usa _method para PUT
+            type: "POST",
             data: $.param(formData),
             dataType: "json",
             headers: {
@@ -141,7 +147,7 @@ function initSubmitNaturezaAtendimento() {
                 form[0].reset();
                 $("#nat_aten_id").val("");
                 $("#nat_aten_method").val("POST");
-
+                $("#nat_aten_mod_relatorio_id").val("");
                 $("#nat_aten_ativo").prop("checked", true);
                 $("#nat_aten_ativo_label").text("Ativo");
                 $("#div_nat_aten_ativo").addClass("d-none");
