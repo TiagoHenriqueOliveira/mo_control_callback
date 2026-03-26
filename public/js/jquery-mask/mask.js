@@ -1,12 +1,12 @@
 $(document).ready(
 	function() {
-		var MaskCelular = function(val) {
+		var MaskTelefone = function(val) {
 			return val.replace(/\D/g, '').length === 11 ? '(00) 00000-0000'
 					: '(00) 0000-00009';
 		}, Options = {
 			onKeyPress : function(val, e, field, options)
 			{
-				field.mask(MaskCelular.apply({}, arguments), options);
+				field.mask(MaskTelefone.apply({}, arguments), options);
 			}
 		};
 	
@@ -28,14 +28,11 @@ $(document).ready(
 		$('.cpf').mask('000.000.000-00');
 		$('#cnpj').mask('00.000.000/0000-00');
 		$('.cnpj').mask('00.000.000/0000-00');
-		$('#tel_celular').mask(MaskCelular, Options);
-		$('.tel_celular').mask(MaskCelular, Options);
-		$('#tel_casa').mask('(00) 0000-0000');
-		$('.tel_casa').mask('(00) 0000-0000');
-		$('#tel_trabalho').mask('(00) 0000-0000');
-		$('.tel_trabalho').mask('(00) 0000-0000');
+		$('#tel').mask(MaskTelefone, Options);
+		$('.tel').mask(MaskTelefone, Options);
 		$('#cep').mask('00.000-000');
 		$('.cep').mask('00.000-000');
-		$('.data').mask('00/00/0000');
+		$(".dinheiro").mask("#.##0,00", {reverse: true});
+		$(".numero").mask("#.##0,000", {reverse: true});
 	}
 );

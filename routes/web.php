@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ClientesController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\EquipamentosController;
 use App\Http\Controllers\ModelosRelatoriosController;
@@ -33,6 +34,8 @@ Route::controller(AuthController::class)->group(function () {
 Route::controller(DashboardController::class)->group(function () {
     Route::get('/dashboard', 'index');
 });
+// Clientes
+Route::resource('clientes', ClientesController::class)->except(['create', 'edit', 'show', 'destroy']);
 // Equipamentos
 Route::resource('equipamentos', EquipamentosController::class)->except(['create', 'edit', 'show', 'destroy']);
 // Modelos de Relatórios
