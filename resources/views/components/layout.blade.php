@@ -73,6 +73,7 @@
                         <span>Ocorrências</span>
                     </a>
                 </li>
+
                 <!-- Nav Item - Mão de Obra -->
                 <li class="nav-item">
                     <a class="nav-link" href="{{ url('/mao-de-obra') }}">
@@ -80,6 +81,15 @@
                         <span>Mão de Obra</span>
                     </a>
                 </li>
+                
+                <!-- Nav Item - Relatórios -->
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url('/atendimentos-relatorios') }}">
+                        <i class="fas fa-clipboard fa-fw fa-lg"></i>
+                        <span>Relatórios</span>
+                    </a>
+                </li>
+
                 <!-- Nav Item - Usuários -->
                 <li class="nav-item">
                     <a class="nav-link" href="{{ url('/usuarios') }}">
@@ -103,7 +113,6 @@
                             <i class="fas fa-tags fa-fw fa-lg mr-2"></i>Naturezas de Atendimentos
                         </a>
                         <a class="collapse-item" href="{{ url('/setores') }}">
-                            <!-- <i class="fas fa-headset fa-fw"></i> -->
                             <i class="fas fa-clipboard-list fa-fw fa-lg mr-2"></i>Setores
                         </a>
                         <a class="collapse-item" href="{{ url('tipos-de-mao-de-obra') }}">

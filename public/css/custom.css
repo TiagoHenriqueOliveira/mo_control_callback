@@ -105,8 +105,8 @@ html body {
   color: #E5C07B !important;
 }
 
-.nav-link.collapsed:hover > i,
-.nav-link:not(.collapsed):hover > i {
+.nav-link.collapsed:hover>i,
+.nav-link:not(.collapsed):hover>i {
   color: #F4D35E !important;
 }
 
@@ -131,4 +131,8 @@ html body {
 legend {
   font-size: 1.1rem;
   margin: 0;
+}
+
+.text-decoration-underline {
+  text-decoration: underline !important;
 }

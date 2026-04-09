@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AtendimentosController;
+use App\Http\Controllers\AtendimentosRelatoriosController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ClientesController;
 use App\Http\Controllers\DashboardController;
@@ -28,6 +29,8 @@ Route::controller(DashboardController::class)->group(function () {
 Route::resource('atendimentos', AtendimentosController::class)->except(['create', 'edit', 'show', 'destroy']);
 Route::get('/atendimentos/autocomplete', [AtendimentosController::class, 'autoComplete'])->name('atendimentos.autocomplete');
 Route::get('/atendimentos/naturezas-por-tipo', [AtendimentosController::class, 'naturezasPorTipo'])->name('atendimentos.naturezas_por_tipo');
+// Atendimentos Relatórios
+Route::resource('atendimentos-relatorios', AtendimentosRelatoriosController::class)->except(['create', 'edit', 'show', 'destroy']);
 // Clientes
 Route::resource('clientes', ClientesController::class)->except(['create', 'edit', 'show', 'destroy']);
 // Equipamentos
